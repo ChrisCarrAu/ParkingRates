@@ -43,16 +43,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DailyRate.cs" />
+    <Compile Include="DailyRateParkingChargeCalculator.cs" />
     <Compile Include="DailyRateCondition.cs" />
-    <Compile Include="FlatRate.cs" />
+    <Compile Include="FlatRateParkingChargeCalculator.cs" />
     <Compile Include="FlatRateCondition.cs" />
-    <Compile Include="HourlyRate.cs" />
+    <Compile Include="HourlyRateParkingChargeCalculator.cs" />
     <Compile Include="HourlyRateCondition.cs" />
-    <Compile Include="HourlyRates.cs" />
+    <Compile Include="HourlyChargeRates.cs" />
+    <Compile Include="IParking.cs" />
+    <Compile Include="IParkingCalculator.cs" />
+    <Compile Include="IParkingCondition.cs" />
+    <Compile Include="IParkingRate.cs" />
     <Compile Include="Parking.cs" />
+    <Compile Include="ParkingCharge.cs" />
     <Compile Include="ParkingCondition.cs" />
-    <Compile Include="ParkingRate.cs" />
+    <Compile Include="ParkingChargeCalculator.cs" />
     <Compile Include="ParkingRateFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

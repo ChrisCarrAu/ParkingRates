@@ -14,9 +14,9 @@ namespace CarPark
                 Parking parking = new Parking(entry, exit);
 
                 // Get the applicable parking rate for this period.
-                var applicableParkingRate = parkingRateFactory.GetRate(parking);
+                var applicableParkingRate = parkingRateFactory.GetCharge(parking);
                 // Get the charge from this parking rate. - I don't like that the parking value is being passed in again.
-                var charge = applicableParkingRate.Charge(parking);
+                var charge = applicableParkingRate.Charge;
             }
 
             {
@@ -24,8 +24,8 @@ namespace CarPark
                 DateTime exit = new DateTime(2018, 1, 21, 23, 30, 1);
                 Parking parking = new Parking(entry, exit);
 
-                var parkingRate = parkingRateFactory.GetRate(parking);
-                var charge = parkingRate.Charge(parking);
+                var parkingCharge = parkingRateFactory.GetCharge(parking);
+                var charge = parkingCharge.Charge;
             }
         }
     }

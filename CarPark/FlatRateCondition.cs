@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CarPark
 {
-    public class FlatRateCondition : ParkingCondition
+    /// <summary>
+    /// Defines the conditions where a flat rate is used to charge for parking
+    /// </summary>
+    public class FlatRateCondition : ParkingCondition, IParkingCondition
     {
         private TimeSpan _entryTimeStart;
         private TimeSpan _entryTimeFinish;
@@ -14,6 +13,14 @@ namespace CarPark
         private TimeSpan _exitTimeFinish;
         private DayOfWeek _daysToApply;
 
+        /// <summary>
+        /// A flat rate is calculated where the carpark is entered within an entry period and exited within an exit period. This can be filtered further to specific days (for both entry and exit)
+        /// </summary>
+        /// <param name="entryTimeStart">Entry time period start</param>
+        /// <param name="entryTimeFinish">Entry time period end</param>
+        /// <param name="exitTimeStart">Exit time period start - this is relative to the entry time, so days must be added for days after entry day</param>
+        /// <param name="exitTimeFinish">Exit time period end</param>
+        /// <param name="daysToApply">The days on which a car must enter and exit for this calculation to apply. Default is every day</param>
         public FlatRateCondition(TimeSpan entryTimeStart, TimeSpan entryTimeFinish, TimeSpan exitTimeStart, TimeSpan exitTimeFinish, DayOfWeek daysToApply = EveryDay)
         {
             _entryTimeStart = entryTimeStart;
@@ -23,6 +30,11 @@ namespace CarPark
             _daysToApply = daysToApply;
         }
 
+        /// <summary>
+        /// Matches if the car entered and exited on the specified days and also if the entry and exit times are within entry/exit spans.
+        /// </summary>
+        /// <param name="parking">the parking usage instance</param>
+        /// <returns></returns>
         public override bool Matches(Parking parking)
         {
             TimeSpan entryTime = parking.Entry.TimeOfDay;
@@ -34,9 +46,12 @@ namespace CarPark
                 exitTime = exitTime.Add(parking.Exit.Date.Subtract(parking.Entry.Date));
             }
 
+            // On which days did the car enter and exit parking?
             var entryDayOfWeek = GetDayOfWeek(parking.Entry);
+            var exitDayOfWeek = GetDayOfWeek(parking.Exit);
 
             return ((entryDayOfWeek & _daysToApply) == entryDayOfWeek)
+                && ((exitDayOfWeek & _daysToApply) == exitDayOfWeek)
                 && (_entryTimeStart <= entryTime) && (entryTime <= _entryTimeFinish)
                 && (_exitTimeStart <= exitTime) && (exitTime <= _exitTimeFinish);
         }
