@@ -1,16 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CarPark
+﻿namespace CarPark
 {
-    public class HourlyRateCondition : ParkingCondition
+    /// <summary>
+    /// Defines the conditions where an hourly rate is used to charge for parking
+    /// </summary>
+    public class HourlyRateCondition : ParkingCondition, IParkingCondition
     {
-        private HourlyRates _hourlyRates { get; set; }
+        private HourlyChargeRates _hourlyRates { get; set; }
 
-        public HourlyRateCondition(HourlyRates hourlyRates)
+        /// <summary>
+        /// Constructor
+        /// </summary>
+        /// <param name="hourlyRates">Hourly rates must be supplied</param>
+        public HourlyRateCondition(HourlyChargeRates hourlyRates)
         {
             _hourlyRates = hourlyRates;
         }

@@ -6,7 +6,7 @@ namespace CarPark
     /// Represents an instance of a parking space usage.
     /// Entry time should be before the exit time.
     /// </summary>
-    public class Parking
+    public class Parking : IParking
     {
         /// <summary>
         /// Date & time of entry to the car park

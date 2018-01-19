@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace CarPark
 {
-    public abstract class ParkingCondition
+    public abstract class ParkingCondition : IParkingCondition
     {
         [Flags]
         public enum DayOfWeek
@@ -21,7 +21,7 @@ namespace CarPark
         /// <returns></returns>
         public DayOfWeek GetDayOfWeek(DateTime day)
         {
-            Dictionary<System.DayOfWeek, ParkingCondition.DayOfWeek> dayOfWeekMap = new Dictionary<System.DayOfWeek, DayOfWeek>();
+            Dictionary<System.DayOfWeek, DayOfWeek> dayOfWeekMap = new Dictionary<System.DayOfWeek, DayOfWeek>();
             dayOfWeekMap.Add(System.DayOfWeek.Sunday, DayOfWeek.Sunday);
             dayOfWeekMap.Add(System.DayOfWeek.Monday, DayOfWeek.Monday);
             dayOfWeekMap.Add(System.DayOfWeek.Tuesday, DayOfWeek.Tuesday);

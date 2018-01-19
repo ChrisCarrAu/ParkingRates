@@ -2,7 +2,7 @@
 
 namespace CarPark
 {
-    public class DailyRateCondition : ParkingCondition
+    public class DailyRateCondition : ParkingCondition, IParkingCondition
     {
         public override bool Matches(Parking parking)
         {
