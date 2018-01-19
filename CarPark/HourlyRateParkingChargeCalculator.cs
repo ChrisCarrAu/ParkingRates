@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CarPark
+﻿namespace CarPark
 {
     /// <summary>
     /// An hourly parking rate defines the rate to charge for hourly increments (up to maximum hours)

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace CarPark
+﻿namespace CarPark
 {
     public class DailyRateCondition : ParkingCondition, IParkingCondition
     {

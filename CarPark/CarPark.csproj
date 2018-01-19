@@ -53,12 +53,13 @@
     <Compile Include="IParking.cs" />
     <Compile Include="IParkingCalculator.cs" />
     <Compile Include="IParkingCondition.cs" />
-    <Compile Include="IParkingRate.cs" />
+    <Compile Include="IParkingType.cs" />
     <Compile Include="Parking.cs" />
     <Compile Include="ParkingCharge.cs" />
     <Compile Include="ParkingCondition.cs" />
     <Compile Include="ParkingChargeCalculator.cs" />
-    <Compile Include="ParkingRateFactory.cs" />
+    <Compile Include="ParkingChargeFactory.cs" />
+    <Compile Include="ParkingConditionFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

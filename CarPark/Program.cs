@@ -6,7 +6,7 @@ namespace CarPark
     {
         static void Main(string[] args)
         {
-            var parkingRateFactory = new ParkingRateFactory();
+            var parkingRateFactory = new ParkingChargeFactory();
 
             {
                 DateTime entry = new DateTime(2018, 1, 19, 6, 0, 0);
