@@ -37,7 +37,7 @@ namespace CarPark
         {
             if (Entry > Exit)
             {
-                throw new Exception("Entry date must preceed exit date");
+                throw new ArgumentException("Entry date must preceed exit date");
             }
 
             Entry = entry;

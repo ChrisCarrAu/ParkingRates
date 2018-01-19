@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="ParkingChargeFactoryTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ParkingTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CarPark\CarPark.csproj">
