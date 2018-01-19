@@ -6,7 +6,7 @@ namespace CarPark
     /// Represents an instance of a parking space usage.
     /// Entry time should be before the exit time.
     /// </summary>
-    public class Parking
+    public class Parking : IParking
     {
         /// <summary>
         /// Date & time of entry to the car park
@@ -26,12 +26,12 @@ namespace CarPark
         /// <summary>
         /// The number of days (whole or partial) parking
         /// </summary>
-        public int Days { get { return Duration.Days + 1; } }
+        public int Days { get { return (int)(Duration.TotalDays) + 1; } }
 
         /// <summary>
         /// The number of hours (whole or partial) of parking
         /// </summary>
-        public int Hours { get { return Duration.Hours + 1; } }
+        public int Hours { get { return (int)(Duration.TotalHours) + 1; } }
 
         public Parking(DateTime entry, DateTime exit)
         {
