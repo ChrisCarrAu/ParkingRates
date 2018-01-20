@@ -11,7 +11,7 @@ namespace CarPark
 
         public ParkingCharge GetCharge(Parking parking)
         {
-            ParkingConditionFactory parkingConditionFactory = new ParkingConditionFactory();
+            var parkingConditionFactory = new ParkingConditionFactory();
 
             var parkingCalculator = parkingConditionFactory.GetParkingCalculator(parking);
 
@@ -25,7 +25,7 @@ namespace CarPark
         [Test]
         public void ParkingRateFactoryFlatRateTest()
         {
-            ParkingChargeFactory parkingChargeFactory = new ParkingChargeFactory();
+            var parkingChargeFactory = new ParkingChargeFactory();
 
             // 6:00am to 11:30pm, Friday, Flat Rate
             var parking = new Parking(new DateTime(2018, 1, 19, 6, 0, 0), new DateTime(2018, 1, 19, 23, 30, 0));
@@ -73,7 +73,7 @@ namespace CarPark
         [Test]
         public void ParkingRateFactoryHourlyRateTest()
         {
-            ParkingChargeFactory parkingChargeFactory = new ParkingChargeFactory();
+            var parkingChargeFactory = new ParkingChargeFactory();
 
             // 5:59:59am to 6:59:58am, Friday, Hourly Rate
             var parking = new Parking(new DateTime(2018, 1, 19, 5, 59, 59), new DateTime(2018, 1, 19, 6, 59, 58));
@@ -106,7 +106,7 @@ namespace CarPark
         [Test]
         public void ParkingRateFactoryDailyRateTest()
         {
-            ParkingChargeFactory parkingChargeFactory = new ParkingChargeFactory();
+            var parkingChargeFactory = new ParkingChargeFactory();
 
             // 5:59:59am to 11:30:00pm, Friday, Daily Rate
             var parking = new Parking(new DateTime(2018, 1, 19, 5, 59, 59), new DateTime(2018, 1, 19, 23, 30, 0));

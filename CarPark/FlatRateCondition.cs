@@ -7,11 +7,11 @@ namespace CarPark
     /// </summary>
     public class FlatRateCondition : ParkingCondition, IParkingCondition
     {
-        private TimeSpan _entryTimeStart;
-        private TimeSpan _entryTimeFinish;
-        private TimeSpan _exitTimeStart;
-        private TimeSpan _exitTimeFinish;
-        private DayOfWeek _daysToApply;
+        private readonly TimeSpan _entryTimeStart;
+        private readonly TimeSpan _entryTimeFinish;
+        private readonly TimeSpan _exitTimeStart;
+        private readonly TimeSpan _exitTimeFinish;
+        private readonly DayOfWeek _daysToApply;
 
         /// <summary>
         /// A flat rate is calculated where the carpark is entered within an entry period and exited within an exit period. This can be filtered further to specific days (for both entry and exit)
@@ -37,8 +37,8 @@ namespace CarPark
         /// <returns></returns>
         public override bool Matches(Parking parking)
         {
-            TimeSpan entryTime = parking.Entry.TimeOfDay;
-            TimeSpan exitTime = parking.Exit.TimeOfDay;
+            var entryTime = parking.Entry.TimeOfDay;
+            var exitTime = parking.Exit.TimeOfDay;
 
             if (parking.Exit.Date > parking.Entry.Date)
             {

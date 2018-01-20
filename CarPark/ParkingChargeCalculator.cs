@@ -4,7 +4,7 @@
     {
         public string FriendlyName { get; set; }
 
-        public ParkingChargeCalculator(string friendlyName)
+        protected ParkingChargeCalculator(string friendlyName)
         {
             FriendlyName = friendlyName;
         }

@@ -5,7 +5,7 @@
     /// </summary>
     public class HourlyRateParkingChargeCalculator : ParkingChargeCalculator
     {
-        private HourlyChargeRates _hourlyRates;
+        private readonly HourlyChargeRates _hourlyRates;
 
         public HourlyRateParkingChargeCalculator(string friendlyName, HourlyChargeRates hourlyRates) : base(friendlyName)
         {

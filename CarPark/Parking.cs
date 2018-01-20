@@ -22,18 +22,23 @@ namespace CarPark
         /// <summary>
         /// The duration of this parking
         /// </summary>
-        private TimeSpan Duration { get { return Exit.Subtract(Entry); } }
+        private TimeSpan Duration => Exit.Subtract(Entry);
 
         /// <summary>
         /// The number of days (whole or partial) parking
         /// </summary>
-        public int Days { get { return (int)(Duration.TotalDays) + 1; } }
+        public int Days => (int)(Duration.TotalDays) + 1;
 
         /// <summary>
         /// The number of hours (whole or partial) of parking
         /// </summary>
-        public int Hours { get { return (int)(Duration.TotalHours) + 1; } }
+        public int Hours => (int)(Duration.TotalHours) + 1;
 
+        /// <summary>
+        /// Constructor - check that exit is after entry
+        /// </summary>
+        /// <param name="entry">entry date/time</param>
+        /// <param name="exit">exit date/time</param>
         public Parking(DateTime entry, DateTime exit)
         {
             if (entry > exit)

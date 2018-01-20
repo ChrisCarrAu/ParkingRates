@@ -9,24 +9,37 @@ namespace CarPark
             var parkingRateFactory = new ParkingChargeFactory();
 
             {
-                DateTime entry = new DateTime(2018, 1, 19, 6, 0, 0);
-                DateTime exit = new DateTime(2018, 1, 19, 23, 30, 0);
-                Parking parking = new Parking(entry, exit);
+                var entry = new DateTime(2018, 1, 19, 6, 0, 0);
+                var exit = new DateTime(2018, 1, 19, 23, 30, 0);
+                var parking = new Parking(entry, exit);
 
                 // Get the applicable parking rate for this period.
                 var applicableParkingRate = parkingRateFactory.GetCharge(parking);
-                // Get the charge from this parking rate. - I don't like that the parking value is being passed in again.
-                var charge = applicableParkingRate.Charge;
+                WriteConsole(applicableParkingRate);
             }
 
             {
-                DateTime entry = new DateTime(2018, 1, 20, 6, 0, 0);
-                DateTime exit = new DateTime(2018, 1, 21, 23, 30, 1);
-                Parking parking = new Parking(entry, exit);
+                var entry = new DateTime(2018, 1, 20, 6, 0, 0);
+                var exit = new DateTime(2018, 1, 21, 23, 30, 1);
+                var parking = new Parking(entry, exit);
 
-                var parkingCharge = parkingRateFactory.GetCharge(parking);
-                var charge = parkingCharge.Charge;
+                var applicableParkingRate = parkingRateFactory.GetCharge(parking);
+                WriteConsole(applicableParkingRate);
             }
+        }
+
+        private static void WriteConsole(ParkingCharge applicableParkingRate)
+        {
+
+            Console.Out.WriteLine("PARKING CALCULATION");
+            Console.Out.Write(" Entry: ");
+            Console.Out.WriteLine(applicableParkingRate.Parking.Entry);
+            Console.Out.Write(" Exit: ");
+            Console.Out.WriteLine(applicableParkingRate.Parking.Exit);
+            Console.Out.Write(" Parking Type: ");
+            Console.Out.WriteLine(applicableParkingRate.Rate.FriendlyName);
+            Console.Out.Write(" Charge: ");
+            Console.Out.WriteLine(applicableParkingRate.Charge);
         }
     }
 }
