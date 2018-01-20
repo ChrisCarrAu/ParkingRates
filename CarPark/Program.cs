@@ -32,14 +32,10 @@ namespace CarPark
         {
 
             Console.Out.WriteLine("PARKING CALCULATION");
-            Console.Out.Write(" Entry: ");
-            Console.Out.WriteLine(applicableParkingRate.Parking.Entry);
-            Console.Out.Write(" Exit: ");
-            Console.Out.WriteLine(applicableParkingRate.Parking.Exit);
-            Console.Out.Write(" Parking Type: ");
-            Console.Out.WriteLine(applicableParkingRate.Rate.FriendlyName);
-            Console.Out.Write(" Charge: ");
-            Console.Out.WriteLine(applicableParkingRate.Charge);
+            Console.Out.WriteLine($" Entry: {applicableParkingRate.Parking.Entry}");
+            Console.Out.WriteLine($" Exit: {applicableParkingRate.Parking.Exit}");
+            Console.Out.WriteLine($" Parking Type: {applicableParkingRate.Rate.FriendlyName}");
+            Console.Out.WriteLine($" Charge: {applicableParkingRate.Charge:C}");
         }
     }
 }
