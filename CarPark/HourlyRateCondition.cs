@@ -5,7 +5,7 @@
     /// </summary>
     public class HourlyRateCondition : ParkingCondition, IParkingCondition
     {
-        private HourlyChargeRates _hourlyRates { get; set; }
+        private HourlyChargeRates HourlyRates { get; set; }
 
         /// <summary>
         /// Constructor
@@ -13,12 +13,12 @@
         /// <param name="hourlyRates">Hourly rates must be supplied</param>
         public HourlyRateCondition(HourlyChargeRates hourlyRates)
         {
-            _hourlyRates = hourlyRates;
+            HourlyRates = hourlyRates;
         }
 
         public override bool Matches(Parking parking)
         {
-            return parking.Hours <= _hourlyRates.MaximumHours;
+            return parking.Hours <= HourlyRates.MaximumHours;
         }
     }
 }

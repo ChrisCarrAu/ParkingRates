@@ -2,7 +2,7 @@
 {
     public class FlatRateParkingChargeCalculator : ParkingChargeCalculator
     {
-        private decimal _charge;
+        private readonly decimal _charge;
 
         public FlatRateParkingChargeCalculator(string friendlyName, decimal charge) : base(friendlyName)
         {
