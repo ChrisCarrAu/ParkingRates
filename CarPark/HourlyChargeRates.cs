@@ -16,13 +16,7 @@ namespace CarPark
         /// <summary>
         /// Returns the maximum number of hours for which an hourly rate can apply
         /// </summary>
-        public int MaximumHours
-        {
-            get
-            {
-                return _rates.Keys.Max();
-            }
-        }
+        public int MaximumHours => _rates.Keys.Max();
 
         /// <summary>
         /// Adds the number of hours at which an hourly rate applies.
