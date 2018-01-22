@@ -15,11 +15,11 @@ namespace CarPark
                     new FlatRateParkingChargeCalculator("Early Bird", 13.00m));
 
             _parkingRules.Add(
-                    new FlatRateCondition(new TimeSpan(18, 0, 0), new TimeSpan(24, 0, 0), new TimeSpan(18, 0, 0), new TimeSpan(1, 6, 0, 0), ParkingCondition.WeekDays),
+                    new FlatRateCondition(new TimeSpan(18, 0, 0), new TimeSpan(24, 0, 0), new TimeSpan(18, 0, 0), new TimeSpan(1, 6, 0, 0), ParkingCondition.WeekDays, ParkingCondition.WeekDays | ParkingCondition.DayOfWeek.Saturday),
                     new FlatRateParkingChargeCalculator("Night Rate", 6.50m));
 
             _parkingRules.Add(
-                    new FlatRateCondition(new TimeSpan(0, 0, 0), new TimeSpan(2, 0, 0, 0), new TimeSpan(0, 0, 0), new TimeSpan(2, 0, 0, 0), ParkingCondition.WeekEnd),
+                    new FlatRateCondition(new TimeSpan(0, 0, 0), new TimeSpan(2, 0, 0, 0), new TimeSpan(0, 0, 0), new TimeSpan(2, 0, 0, 0), ParkingCondition.WeekEnd, ParkingCondition.WeekEnd),
                     new FlatRateParkingChargeCalculator("Weekend Rate", 10.00m));
 
             HourlyChargeRates hourlyRates = new HourlyChargeRates();

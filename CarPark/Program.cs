@@ -19,6 +19,16 @@ namespace CarPark
             }
 
             {
+                var entry = new DateTime(2018, 1, 19, 18, 0, 0);
+                var exit = new DateTime(2018, 1, 20, 5, 59, 59);
+                var parking = new Parking(entry, exit);
+
+                // Get the applicable parking rate for this period.
+                var applicableParkingRate = parkingRateFactory.GetCharge(parking);
+                WriteConsole(applicableParkingRate);
+            }
+
+            {
                 var entry = new DateTime(2018, 1, 20, 6, 0, 0);
                 var exit = new DateTime(2018, 1, 21, 23, 30, 1);
                 var parking = new Parking(entry, exit);
