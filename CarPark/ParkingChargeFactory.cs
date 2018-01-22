@@ -62,6 +62,13 @@ namespace CarPark
             Assert.IsInstanceOf<FlatRateParkingChargeCalculator>(rate.Rate);
             Assert.IsTrue(rate.Charge == 6.50m);
 
+            // Almost midnight Friday to 3:00am Saturday, Weekday Night Rate
+            parking = new Parking(new DateTime(2018, 1, 19, 23, 59, 59), new DateTime(2018, 1, 20, 3, 0, 0));
+            rate = parkingChargeFactory.GetCharge(parking);
+
+            Assert.IsInstanceOf<FlatRateParkingChargeCalculator>(rate.Rate);
+            Assert.IsTrue(rate.Charge == 6.50m);
+
             // 0:00pm Saturday to 0:00am Sunday, Weekend Rate
             parking = new Parking(new DateTime(2018, 1, 20, 0, 0, 0), new DateTime(2018, 1, 21, 0, 0, 0));
             rate = parkingChargeFactory.GetCharge(parking);

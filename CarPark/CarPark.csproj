@@ -59,6 +59,7 @@
     <Compile Include="IParking.cs" />
     <Compile Include="IParkingCalculator.cs" />
     <Compile Include="IParkingCondition.cs" />
+    <Compile Include="IParkingConditionFactory.cs" />
     <Compile Include="IParkingType.cs" />
     <Compile Include="Parking.cs" />
     <Compile Include="ParkingCharge.cs" />

@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace CarPark
 {
-    public class ParkingConditionFactory
+    public class ParkingConditionFactory : IParkingConditionFactory
     {
         private Dictionary<IParkingCondition, ParkingChargeCalculator> _parkingRules = new Dictionary<IParkingCondition, ParkingChargeCalculator>();
 
